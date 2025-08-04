@@ -20,7 +20,7 @@ public class SobaGenerator : MonoBehaviour
     public GameObject SpawnSoba()
     {
         GameObject soba = Instantiate(prefab, SpawnaPos.position, Quaternion.identity);
-        soba = Instantiate(prefab, SpawnaPos.position, Quaternion.identity);
+       
 
         float randomY = Random.Range(minScaleY, maxScaleY);
         Vector3 scale = soba.transform.localScale;
