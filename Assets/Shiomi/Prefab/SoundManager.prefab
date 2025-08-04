@@ -308,7 +308,7 @@ MonoBehaviour:
   _seAudioSource: {fileID: 5041979346041353611}
   _bgmSoundDatas:
   - _bgm: 0
-    _audioClip: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 27c3640cd7948f2448d1ae2f37040954, type: 3}
     _volume: 1
   - _bgm: 1
     _audioClip: {fileID: 0}
