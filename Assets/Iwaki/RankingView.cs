@@ -10,6 +10,14 @@ public class RankingView : MonoBehaviour
     private void Start()
     {
         _rankingData = _dataManager.Data;
+
+        var items = _rankingBoardRoot.GetComponentsInChildren<RankingItemView>(false);
+        var loop = Mathf.Min(items.Length, RankingData.rankCount);
+
+        for (int i = 0; i < loop; i++)
+        {
+            items[i].SetData(_rankingData.ranks[i], i);
+        }
     }
 }
 
