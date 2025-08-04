@@ -1,36 +1,38 @@
-
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class gauge : MonoBehaviour
 {
-    //満腹ゲージのマックスを最少を1最大を100の範囲で開始する
+    //満腹ゲージのMAXを最少を1最大を100の範囲で開始する
     [Range(1,100)]public float _fullnessgauge = 100.0f;
-    [Range(1, 10)] public float _damaage = 10.0f;
+    //現在の満腹ゲージ
+     [Range(1, 100), SerializeField] private float _currentGauge = 0.0f;
     //画像を取得する(満腹ゲージのゲージ画像をアタッチする)
     [SerializeField] private  Image _image;
 
-
-
-    void Update()
+    private void Start()
     {
-        //もしspaceキーを押したら
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Damaage(_damaage);
-        }
-
-
+        //最初は空腹
+        _image.fillAmount = _currentGauge / _fullnessgauge;
     }
+    
 
-    public void Damaage(float damage)
+/// <summary>
+/// 満腹ゲージの関数
+/// </summary>
+/// <param name="increaseValue">満腹具合</param>
+    public void AddFullness(float increaseValue)
     {
-        //ゲージを減らす
-        _fullnessgauge -= damage;
+        //ゲージを増やす
+        _currentGauge += increaseValue;
 
-        _image.fillAmount = _fullnessgauge / 100.0f;
+        _image.fillAmount = _currentGauge/_fullnessgauge;
+
+        //もし現在の満腹ゲージがMAXになったら
+        if (_currentGauge >= _fullnessgauge)
+        {
+            //これは仮の出力
+            Debug.Log("おなかいっぱいになりました");
+        }
     }
 }
