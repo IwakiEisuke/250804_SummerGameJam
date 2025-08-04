@@ -62,7 +62,6 @@ public class SobaGameLogic : MonoBehaviour
 
     private void Performed(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Pressed");
         if (_currentSoba != null)
         {
             _currentSoba.StartSlurp(this);
@@ -72,8 +71,6 @@ public class SobaGameLogic : MonoBehaviour
 
     private void Cancelled(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Released");
-
         if (_isSlurping)
         {
             if (CheckSuccess())
