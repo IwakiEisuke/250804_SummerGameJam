@@ -67,9 +67,11 @@ public class SESoundData
     public enum SE
     {
         //ここの部分がラベルになる
-        Test,
-        Damage,
-
+        SobaFaile,
+        SobaSip,
+        SobaStart,
+        SobaSuccess,
+        SwitchPush
     }
 
     public SE _se;
