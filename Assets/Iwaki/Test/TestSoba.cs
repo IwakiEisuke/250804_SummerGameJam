@@ -2,8 +2,9 @@
 
 public class TestSoba : SobaBase
 {
-    float speed = 5f;
-    Rigidbody rb;
+    [SerializeField] float speed = 5f;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Collider col;
 
     void Update()
     {
@@ -11,13 +12,12 @@ public class TestSoba : SobaBase
         {
             transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
-
-        rb = GetComponent<Rigidbody>();
     }
 
     protected override void Failure()
     {
         rb.isKinematic = false;
+        col.enabled = false;
         Destroy(gameObject, 1f);
         Destroy(this);
     }
@@ -47,13 +47,13 @@ public class SobaBase : MonoBehaviour
         _isSlurping = true;
 
         // 成功・失敗時のアクションを登録
-        logic.successAction += Success;
-        logic.failureAction += Failure;
-        logic.overSlurpAction += OverSlurp;
+        logic.SuccessAction += Success;
+        logic.FailureAction += Failure;
+        logic.OverSlurpAction += OverSlurp;
         // すすり状態をキャンセルするためのアクションを登録
-        logic.successAction += CancelSlurp;
-        logic.failureAction += CancelSlurp;
-        logic.overSlurpAction += CancelSlurp;
+        logic.SuccessAction += CancelSlurp;
+        logic.FailureAction += CancelSlurp;
+        logic.OverSlurpAction += CancelSlurp;
     }
 
     /// <summary>

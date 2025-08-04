@@ -6,57 +6,66 @@ using UnityEngine.InputSystem;
 public class SobaGameLogic : MonoBehaviour
 {
     [SerializeField] InputActionReference _button;
+    [SerializeField] SobaGenerator _generator;
+    [SerializeField] float _successFrameCount = 3f; // 成功判定のフレーム数(60fps)
+
     // システム系
     [SerializeField] UnityEvent _onSuccess;
     [SerializeField] UnityEvent _onFailure;
 
     // そば側
-    public event Action successAction;
-    public event Action failureAction;
-    public event Action overSlurpAction;
+    public event Action SuccessAction;
+    public event Action FailureAction;
+    public event Action OverSlurpAction;
 
     bool _isInSuccessArea = false;
     bool _isSlurping = false;
+
+    float _overSlurpTimer = 0f; // すすりすぎと判定するまでの時間を計測するタイマー
+
+    SobaBase _currentSoba;
 
     void Start()
     {
         _button.action.performed += Performed;
         _button.action.canceled += Cancelled;
+        _currentSoba = SpawnSoba(); // ゲーム開始時にそばを生成
     }
 
-    private void OnTriggerEnter(Collider other)
+    private SobaBase SpawnSoba()
     {
-        _isInSuccessArea = true;
+        return _generator.SpawnSoba().GetComponent<SobaBase>();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _isInSuccessArea = false;
-        // 通り過ぎたら失敗
-        OverSlurp();
+        _isInSuccessArea = true;
+    }
+
+    private void Update()
+    {
+        if (_isInSuccessArea)
+        {
+            _overSlurpTimer += Time.deltaTime;
+            if (_overSlurpTimer >= _successFrameCount / 60f) // フレーム数を秒に変換(60fps想定)
+            {
+                OverSlurp();
+                _overSlurpTimer = 0f;
+            }
+        }
     }
 
     private bool CheckSuccess()
     {
-        if (_isInSuccessArea)
-        {
-            Debug.Log("Success");
-        }
-        else
-        {
-            Debug.Log("Failure");
-        }
-
         return _isInSuccessArea;
     }
 
     private void Performed(InputAction.CallbackContext ctx)
     {
         Debug.Log("Pressed");
-        var soba = FindAnyObjectByType<SobaBase>();
-        if (soba != null)
+        if (_currentSoba != null)
         {
-            soba.StartSlurp(this);
+            _currentSoba.StartSlurp(this);
             _isSlurping = true;
         }
     }
@@ -80,30 +89,36 @@ public class SobaGameLogic : MonoBehaviour
 
     private void Success()
     {
+        Debug.Log("Success");
         _onSuccess.Invoke();
-        successAction?.Invoke();
-        CancelActions();
+        SuccessAction?.Invoke();
+        Next();
     }
 
     private void Failure()
     {
+        Debug.Log("Failure");
         _onFailure.Invoke();
-        failureAction?.Invoke();
-        CancelActions();
+        FailureAction?.Invoke();
+        Next();
     }
 
     private void OverSlurp()
     {
+        Debug.Log("OverSlurp");
         _onFailure.Invoke();
-        overSlurpAction?.Invoke();
-        CancelActions();
+        OverSlurpAction?.Invoke();
+        Next();
     }
 
-    private void CancelActions()
+    private void Next()
     {
-        successAction = null;
-        failureAction = null;
-        overSlurpAction = null;
+        _isSlurping = false;
+        _isInSuccessArea = false;
+        SuccessAction = null;
+        FailureAction = null;
+        OverSlurpAction = null;
+        _currentSoba = SpawnSoba();
     }
 
     private void OnDestroy()
