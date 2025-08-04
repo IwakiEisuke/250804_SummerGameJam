@@ -4,26 +4,30 @@ public class TestSoba : SobaBase
 {
     [SerializeField] float speed = 5f;
     [SerializeField] Rigidbody rb;
-    [SerializeField] Collider col;
+    [SerializeField] Transform bottomTransform;
 
     void Update()
     {
         if (IsSlurping)
         {
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            transform.Translate(speed * Time.deltaTime * Vector3.up);
         }
     }
 
     protected override void Failure()
     {
         rb.isKinematic = false;
-        col.enabled = false;
         Destroy(gameObject, 1f);
         Destroy(this);
     }
+
+    public override Transform GetBottom()
+    {
+        return bottomTransform;
+    }
 }
 
-public class SobaBase : MonoBehaviour
+public abstract class SobaBase : MonoBehaviour
 {
     /// <summary>
     /// すすり中か
@@ -31,6 +35,8 @@ public class SobaBase : MonoBehaviour
     private bool _isSlurping;
 
     public bool IsSlurping => _isSlurping;
+
+    public abstract Transform GetBottom();
 
     /// <summary>
     /// すすり開始

@@ -7,7 +7,7 @@ public class SobaGameLogic : MonoBehaviour
 {
     [SerializeField] InputActionReference _button;
     [SerializeField] SobaGenerator _generator;
-    [SerializeField] float _successFrameCount = 3f; // 成功判定のフレーム数(60fps)
+    [SerializeField] float _successAreaHeight = 0.5f; // 成功判定の高さ(そばの底からの距離)
 
     // システム系
     [SerializeField] UnityEvent _onSuccess;
@@ -21,9 +21,8 @@ public class SobaGameLogic : MonoBehaviour
     bool _isInSuccessArea = false;
     bool _isSlurping = false;
 
-    float _overSlurpTimer = 0f; // すすりすぎと判定するまでの時間を計測するタイマー
-
     SobaBase _currentSoba;
+    Transform _currentSobaBottom;
 
     void Start()
     {
@@ -34,23 +33,28 @@ public class SobaGameLogic : MonoBehaviour
 
     private SobaBase SpawnSoba()
     {
-        return _generator.SpawnSoba().GetComponent<SobaBase>();
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _isInSuccessArea = true;
+        var soba = _generator.SpawnSoba().GetComponent<SobaBase>();
+        _currentSobaBottom = soba.GetBottom();
+        return soba;
     }
 
     private void Update()
     {
-        if (_isInSuccessArea)
+        if (_isSlurping)
         {
-            _overSlurpTimer += Time.deltaTime;
-            if (_overSlurpTimer >= _successFrameCount / 60f) // フレーム数を秒に変換(60fps想定)
+            // 成功エリアに入ったか
+            if (_successAreaHeight > Mathf.Abs(transform.position.y - _currentSobaBottom.position.y))
             {
-                OverSlurp();
-                _overSlurpTimer = 0f;
+                _isInSuccessArea = true;
+            }
+            else
+            {
+                // 成功エリアに一度入ったあと外れたら失敗
+                if (_isInSuccessArea)
+                {
+                    OverSlurp();
+                }
+                _isInSuccessArea = false;
             }
         }
     }
@@ -108,6 +112,7 @@ public class SobaGameLogic : MonoBehaviour
         Next();
     }
 
+    // 次の蕎麦の準備
     private void Next()
     {
         _isSlurping = false;
