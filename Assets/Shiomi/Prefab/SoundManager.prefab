@@ -311,10 +311,10 @@ MonoBehaviour:
     _audioClip: {fileID: 8300000, guid: 27c3640cd7948f2448d1ae2f37040954, type: 3}
     _volume: 1
   - _bgm: 1
-    _audioClip: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: eccaa17cd79fa894d87f14c93f97c85b, type: 3}
     _volume: 1
   - _bgm: 2
-    _audioClip: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 62e7236407844a64ca95556ae4746738, type: 3}
     _volume: 1
   _seSoundDatas:
   - _se: 0
