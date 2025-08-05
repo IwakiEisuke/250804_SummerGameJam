@@ -63,7 +63,8 @@ public class BowlGenerator : MonoBehaviour
                 Debug.Log("Ç®òoê∂ê¨");
             }
 
-            _currentBowlCount += _firstBowlIntervalCount[_indexCounter];
+            if (_indexCounter < _bowlObjects.Length)
+                _currentBowlCount += _firstBowlIntervalCount[_indexCounter];
         }
     }
 }
