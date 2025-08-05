@@ -396,6 +396,21 @@ MonoBehaviour:
   _fullnessgauge: 100
   _currentGauge: 1
   _image: {fileID: 1810385988}
+  OnGaugeFull:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1819653749}
+        m_TargetAssemblyTypeName: SceneFader, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236454971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,15 +654,15 @@ MonoBehaviour:
   _onFailure:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1724579651}
-        m_TargetAssemblyTypeName: GaugeController, Assembly-CSharp
-        m_MethodName: AddGauge
-        m_Mode: 1
+      - m_Target: {fileID: 236454970}
+        m_TargetAssemblyTypeName: gauge, Assembly-CSharp
+        m_MethodName: AddFullness
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -913,7 +928,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724579650}
-  - component: {fileID: 1724579651}
   - component: {fileID: 1724579652}
   m_Layer: 0
   m_Name: System
@@ -937,20 +951,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1724579651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724579649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d03867b493c7d4b9f92450b8ab7b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gaugeAddValue: 10
-  gauge: {fileID: 236454970}
 --- !u!114 &1724579652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,6 +1115,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810385986}
   m_CullTransparentMesh: 1
+--- !u!1 &1819653748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1819653750}
+  - component: {fileID: 1819653749}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1819653749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819653748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f220481765f8a7e48b86d4b1ec34d37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeCanvasGroup: {fileID: 5503465}
+  onFadeInComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onFadeOutComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1819653750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819653748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.158906, y: 3.343668, z: -2.499998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836763605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,3 +1423,4 @@ SceneRoots:
   - {fileID: 199052851}
   - {fileID: 236454974}
   - {fileID: 1724579650}
+  - {fileID: 1819653750}
