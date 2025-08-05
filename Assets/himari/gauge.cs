@@ -12,8 +12,16 @@ public class gauge : MonoBehaviour
 
     private void Start()
     {
-        //Å‰‚Í‹ó• 
-        _image.fillAmount = _currentGauge / _fullnessgauge;
+        if (_image)
+        {
+            //Å‰‚Í‹ó• 
+            _image.fillAmount = _currentGauge / _fullnessgauge;
+        }
+        else
+        {
+            Debug.Log("ƒQ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+        }
+            
     }
     
 
