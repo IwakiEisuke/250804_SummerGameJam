@@ -21,6 +21,7 @@ public class SobaGameLogic : MonoBehaviour
 
     bool _isInSuccessArea = false;
     bool _isSlurping = false;
+    bool _isGameStop = true;
 
     SobaBase _currentSoba;
     Transform _currentSobaBottom;
@@ -67,15 +68,23 @@ public class SobaGameLogic : MonoBehaviour
 
     private void Performed(InputAction.CallbackContext ctx)
     {
+        if (_isGameStop)
+            return;
+
         if (_currentSoba != null)
         {
             _currentSoba.StartSlurp(this);
+            SoundManager.Instance.PlaySE(SESoundData.SE.SobaSip);
             _isSlurping = true;
         }
     }
 
     private void Cancelled(InputAction.CallbackContext ctx)
     {
+
+        if (_isGameStop)
+            return;
+
         if (_isSlurping)
         {
             if (CheckSuccess())
@@ -92,6 +101,7 @@ public class SobaGameLogic : MonoBehaviour
     private void Success()
     {
         Debug.Log("Success");
+        SoundManager.Instance.PlaySE(SESoundData.SE.SobaSuccess);
         _onSuccess.Invoke();
         SuccessAction?.Invoke();
         Next();
@@ -100,6 +110,7 @@ public class SobaGameLogic : MonoBehaviour
     private void Failure()
     {
         Debug.Log("Failure");
+        SoundManager.Instance.PlaySE(SESoundData.SE.SobaFaile);
         _onFailure.Invoke();
         FailureAction?.Invoke();
         Next();
@@ -122,6 +133,16 @@ public class SobaGameLogic : MonoBehaviour
         FailureAction = null;
         OverSlurpAction = null;
         _currentSoba = SpawnSoba();
+    }
+
+    public void StartGame()
+    {
+        _isGameStop = false;
+    }
+
+    public void StopGame()
+    {
+        _isGameStop = true;
     }
 
     private void OnDestroy()

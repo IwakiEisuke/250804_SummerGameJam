@@ -13,7 +13,7 @@ public class RankingItemView : MonoBehaviour
         }
         else
         {
-            scoreText.text = $"{rankIndex + 1}位 {item.score}杯"; // ランキングとスコアを表示
+            scoreText.text = $"{item.score}"; // ランキングとスコアを表示
         }
     }
 }
