@@ -309,16 +309,28 @@ MonoBehaviour:
   _bgmSoundDatas:
   - _bgm: 0
     _audioClip: {fileID: 8300000, guid: 27c3640cd7948f2448d1ae2f37040954, type: 3}
-    _volume: 1
+    _volume: 0.5
   - _bgm: 1
-    _audioClip: {fileID: 0}
-    _volume: 1
+    _audioClip: {fileID: 8300000, guid: eccaa17cd79fa894d87f14c93f97c85b, type: 3}
+    _volume: 0.5
   - _bgm: 2
-    _audioClip: {fileID: 0}
-    _volume: 1
+    _audioClip: {fileID: 8300000, guid: 62e7236407844a64ca95556ae4746738, type: 3}
+    _volume: 0.5
   _seSoundDatas:
   - _se: 0
-    _audioClip: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: f375496546e4fd64da15645e6891d4fe, type: 3}
+    _volume: 1
+  - _se: 1
+    _audioClip: {fileID: 8300000, guid: 1da85018c42b06a4f9c60e6ed1c917d5, type: 3}
+    _volume: 1
+  - _se: 2
+    _audioClip: {fileID: 8300000, guid: 533e194c052e7a448a46dd9e64ef6b72, type: 3}
+    _volume: 1
+  - _se: 3
+    _audioClip: {fileID: 8300000, guid: 89c64a8662f6e1845802313a0fce6eab, type: 3}
+    _volume: 1
+  - _se: 4
+    _audioClip: {fileID: 8300000, guid: 422f88a4ef3022d469a0ecfc66bcae8f, type: 3}
     _volume: 1
   _masterVolume: 1
   _bgmMasterVolume: 1

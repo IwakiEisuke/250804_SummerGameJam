@@ -26,4 +26,9 @@ public class BowlCounter : MonoBehaviour
     {
         countText.text = bowlCount + "”t";
     }
+
+    public void FinishGame()
+    {
+        ScoreManager.Instance.RegisterScore(bowlCount);
+    }
 }
