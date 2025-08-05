@@ -424,7 +424,7 @@ Transform:
   - {fileID: 936500738}
   - {fileID: 285699261}
   - {fileID: 292805773}
-  - {fileID: 612897461}
+  - {fileID: 8966781033205747113}
   - {fileID: 1417041367}
   - {fileID: 1248778818}
   m_Father: {fileID: 0}
@@ -533,7 +533,19 @@ MonoBehaviour:
   _fadeCanvasGroup: {fileID: 342712050}
   onFadeInComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 414882014}
+        m_TargetAssemblyTypeName: SobaGameLogic, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFadeOutComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -548,7 +560,6 @@ GameObject:
   - component: {fileID: 414882013}
   - component: {fileID: 414882014}
   - component: {fileID: 414882015}
-  - component: {fileID: 414882016}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -584,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _generator: {fileID: 1883388067}
+  _generator: {fileID: 4250071483162563096}
   _successAreaHeight: 0.06
   _referencePoint: {fileID: 1127835423}
   _onSuccess:
@@ -617,6 +628,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onSlurpStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1276631988}
+        m_TargetAssemblyTypeName: FaceBlendShape, Assembly-CSharp
+        m_MethodName: OpenMouth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 977999217}
+        m_TargetAssemblyTypeName: HandAnimator, Assembly-CSharp
+        m_MethodName: RaiseHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onSlurpEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1276631988}
+        m_TargetAssemblyTypeName: FaceBlendShape, Assembly-CSharp
+        m_MethodName: CloseMouth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 977999217}
+        m_TargetAssemblyTypeName: HandAnimator, Assembly-CSharp
+        m_MethodName: LowerHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &414882015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,19 +696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowlCount: 0
   countText: {fileID: 268432725}
---- !u!114 &414882016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414882012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5770ab5821959cd4cb4db048b3c32ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bowlCounter: {fileID: 414882015}
 --- !u!1 &470336185
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,11 +893,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521477395}
   m_CullTransparentMesh: 1
---- !u!4 &612897461 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-  m_PrefabInstance: {fileID: 1883388066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678635524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,9 +1142,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 414882016}
-        m_TargetAssemblyTypeName: RankingSender, Assembly-CSharp
-        m_MethodName: SendRanking
+      - m_Target: {fileID: 414882014}
+        m_TargetAssemblyTypeName: SobaGameLogic, Assembly-CSharp
+        m_MethodName: StopGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1275,7 +1322,7 @@ MonoBehaviour:
   _handTransform: {fileID: 292805773}
   _lower: {fileID: 1417041367}
   _upper: {fileID: 1248778818}
-  _tweenDuration: 0.5
+  _tweenDuration: 0.25
   _tweenEase: 1
 --- !u!4 &977999218
 Transform:
@@ -1579,7 +1626,7 @@ Transform:
   m_GameObject: {fileID: 1248778817}
   serializedVersion: 2
   m_LocalRotation: {x: -0.022997199, y: -0.99973553, z: -0, w: 0}
-  m_LocalPosition: {x: -0.05, y: 0.967, z: -8.278}
+  m_LocalPosition: {x: -0.061, y: 0.955, z: -8.285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1615,7 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinnedMeshRenderer: {fileID: 285699262}
-  _blendDuration: 0.5
+  _blendDuration: 0.2
   _blendEase: 7
 --- !u!4 &1276631989
 Transform:
@@ -1657,88 +1704,12 @@ Transform:
   m_GameObject: {fileID: 1417041366}
   serializedVersion: 2
   m_LocalRotation: {x: -0.23527761, y: -0.9719282, z: -0, w: 0}
-  m_LocalPosition: {x: -0.057, y: 0.872, z: -8.278}
+  m_LocalPosition: {x: -0.081, y: 0.8489, z: -8.2671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 310446819}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 27.216}
---- !u!1001 &1883388066
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 310446819}
-    m_Modifications:
-    - target: {fileID: 4250071481279457978, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
-    - target: {fileID: 4250071481279457978, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: SpawnaPos
-      value: 
-      objectReference: {fileID: 612897461}
-    - target: {fileID: 7834602997630925855, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_Name
-      value: SobaGenerator
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.792
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.2761
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966781031322645771, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
---- !u!114 &1883388067 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4250071481279457978, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
-  m_PrefabInstance: {fileID: 1883388066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a057cf02ea428b4790c318d07a4741c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2006027360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2001,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140310691}
   m_CullTransparentMesh: 1
+--- !u!114 &4250071483162563096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834602997903672509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a057cf02ea428b4790c318d07a4741c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
+  SpawnaPos: {fileID: 8966781033205747113}
+  minScaleY: 1
+  maxScaleY: 5
+--- !u!1 &7834602997903672509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8966781033205747113}
+  - component: {fileID: 4250071483162563096}
+  m_Layer: 0
+  m_Name: SobaGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8966781033205747113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834602997903672509}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.792, z: -8.2761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 310446819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
