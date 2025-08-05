@@ -8,6 +8,7 @@ public class SobaGameLogic : MonoBehaviour
     [SerializeField] InputActionReference _button;
     [SerializeField] SobaGenerator _generator;
     [SerializeField] float _successAreaHeight = 0.5f; // 成功判定の高さ(そばの底からの距離)
+    [SerializeField] Transform _referencePoint;
 
     // システム系
     [SerializeField] UnityEvent _onSuccess;
@@ -43,7 +44,7 @@ public class SobaGameLogic : MonoBehaviour
         if (_isSlurping)
         {
             // 成功エリアに入ったか
-            if (_successAreaHeight > Mathf.Abs(transform.position.y - _currentSobaBottom.position.y))
+            if (_successAreaHeight > Mathf.Abs(_referencePoint.position.y - _currentSobaBottom.position.y))
             {
                 _isInSuccessArea = true;
             }
@@ -127,5 +128,11 @@ public class SobaGameLogic : MonoBehaviour
     {
         _button.action.performed -= Performed;
         _button.action.canceled -= Cancelled;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(_referencePoint.position, new Vector3(0.1f, _successAreaHeight * 2, 0.0f));
     }
 }

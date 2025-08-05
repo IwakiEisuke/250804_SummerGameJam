@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class gauge : MonoBehaviour
@@ -9,6 +10,8 @@ public class gauge : MonoBehaviour
      [Range(1, 100), SerializeField] private float _currentGauge = 0.0f;
     //画像を取得する(満腹ゲージのゲージ画像をアタッチする)
     [SerializeField] private  Image _image;
+
+    [SerializeField] UnityEvent OnGaugeFull;
 
     private void Start()
     {
@@ -33,6 +36,7 @@ public class gauge : MonoBehaviour
         {
             //これは仮の出力
             Debug.Log("おなかいっぱいになりました");
+            OnGaugeFull.Invoke();
         }
     }
 }
