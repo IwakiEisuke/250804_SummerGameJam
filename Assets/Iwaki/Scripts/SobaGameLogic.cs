@@ -14,6 +14,10 @@ public class SobaGameLogic : MonoBehaviour
     [SerializeField] UnityEvent _onSuccess;
     [SerializeField] UnityEvent _onFailure;
 
+    // アニメーション
+    [SerializeField] UnityEvent _onSlurpStart;
+    [SerializeField] UnityEvent _onSlurpEnd;
+
     // そば側
     public event Action SuccessAction;
     public event Action FailureAction;
@@ -71,6 +75,8 @@ public class SobaGameLogic : MonoBehaviour
         if (_isGameStop)
             return;
 
+        _onSlurpStart.Invoke();
+
         if (_currentSoba != null)
         {
             _currentSoba.StartSlurp(this);
@@ -81,6 +87,8 @@ public class SobaGameLogic : MonoBehaviour
 
     private void Cancelled(InputAction.CallbackContext ctx)
     {
+        // ゲーム終了後も閉じれる
+        _onSlurpEnd.Invoke();
 
         if (_isGameStop)
             return;
