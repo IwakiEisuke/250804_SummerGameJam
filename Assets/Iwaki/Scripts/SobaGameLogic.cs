@@ -161,6 +161,11 @@ public class SobaGameLogic : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (_referencePoint == null)
+        {
+            return;
+        }
+
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(_referencePoint.position, new Vector3(0.1f, _successAreaHeight * 2, 0.0f));
     }
