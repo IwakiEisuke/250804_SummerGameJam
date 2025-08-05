@@ -6,8 +6,10 @@ public class HandAnimator : MonoBehaviour
     [SerializeField] Transform _handTransform;
     [SerializeField] Transform _lower;
     [SerializeField] Transform _upper;
-    [SerializeField] float _tweenDuration;
-    [SerializeField] Ease _tweenEase = Ease.Linear;
+    [SerializeField] float _raiseTweenDuration;
+    [SerializeField] Ease _raiseTweenEase = Ease.Linear;
+    [SerializeField] float _lowerTweenDuration;
+    [SerializeField] Ease _lowerTweenEase = Ease.Linear;
 
     private void Start()
     {
@@ -15,21 +17,21 @@ public class HandAnimator : MonoBehaviour
         _handTransform.rotation = _lower.rotation;
     }
 
-    private void HandMove(Transform target)
+    private void HandMove(Transform target, float duration, Ease ease)
     {
-        _handTransform.DOMove(target.position, _tweenDuration).SetEase(_tweenEase);
-        _handTransform.DORotate(target.rotation.eulerAngles, _tweenDuration).SetEase(_tweenEase);
+        _handTransform.DOMove(target.position, duration).SetEase(ease);
+        _handTransform.DORotate(target.rotation.eulerAngles, duration).SetEase(ease);
     }
 
     [ContextMenu("Raise Hand")]
     public void RaiseHand()
     {
-        HandMove(_upper);
+        HandMove(_upper, _raiseTweenDuration, _raiseTweenEase);
     }
 
     [ContextMenu("Lower Hand")]
     public void LowerHand()
     {
-        HandMove(_lower);
+        HandMove(_lower, _lowerTweenDuration, _lowerTweenEase);
     }
 }
