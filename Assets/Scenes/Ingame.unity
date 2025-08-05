@@ -417,7 +417,6 @@ Transform:
   m_Children:
   - {fileID: 952759244}
   - {fileID: 936500738}
-  - {fileID: 1815947815}
   - {fileID: 285699261}
   - {fileID: 292805773}
   - {fileID: 612897461}
@@ -1473,80 +1472,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4859737582721930757, guid: 22190a52643c09c44adf0e31f4491921, type: 3}
   m_PrefabInstance: {fileID: 1185942237}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1815947814
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 310446819}
-    m_Modifications:
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9579
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.2761
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150679467221721333, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_Name
-      value: BgMD_soba
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150679467221721333, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
---- !u!4 &1815947815 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2374143455357991503, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
-  m_PrefabInstance: {fileID: 1815947814}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1883388066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1558,7 +1483,7 @@ PrefabInstance:
     - target: {fileID: 4250071481279457978, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 3150679467221721333, guid: bd25ae9e6686d3c4cb5c10fe8d387f66, type: 3}
+      objectReference: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
     - target: {fileID: 4250071481279457978, guid: b678cb418b676e64982e6ccf08145dc2, type: 3}
       propertyPath: SpawnaPos
       value: 
