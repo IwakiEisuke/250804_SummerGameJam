@@ -424,7 +424,7 @@ Transform:
   - {fileID: 936500738}
   - {fileID: 285699261}
   - {fileID: 292805773}
-  - {fileID: 8966781033205747113}
+  - {fileID: 1575739975}
   - {fileID: 1417041367}
   - {fileID: 1248778818}
   m_Father: {fileID: 0}
@@ -1710,6 +1710,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 310446819}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 27.216}
+--- !u!1 &1575739974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1575739975}
+  m_Layer: 0
+  m_Name: SobaSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1575739975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575739974}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.792, z: -8.2761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 310446819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006027360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,7 +2045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
-  SpawnaPos: {fileID: 8966781033205747113}
+  SpawnaPos: {fileID: 1575739975}
   minScaleY: 1
   maxScaleY: 5
 --- !u!1 &7834602997903672509
@@ -2043,11 +2074,11 @@ Transform:
   m_GameObject: {fileID: 7834602997903672509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.792, z: -8.2761}
+  m_LocalPosition: {x: 0, y: 0.792, z: -9.5061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 310446819}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2064,3 +2095,4 @@ SceneRoots:
   - {fileID: 414882013}
   - {fileID: 1276631989}
   - {fileID: 977999218}
+  - {fileID: 8966781033205747113}
