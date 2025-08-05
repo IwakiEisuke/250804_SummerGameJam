@@ -19,6 +19,7 @@ public class HandAnimator : MonoBehaviour
 
     private void HandMove(Transform target, float duration, Ease ease)
     {
+        DOTween.Kill(_handTransform);
         _handTransform.DOMove(target.position, duration).SetEase(ease);
         _handTransform.DORotate(target.rotation.eulerAngles, duration).SetEase(ease);
     }
