@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _generator: {fileID: 1240817896}
+  _generator: {fileID: 1240817898}
   _successAreaHeight: 0.06
   _referencePoint: {fileID: 2114282482}
   _onSuccess:
@@ -1116,11 +1116,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3280729834094857404, guid: 489b7342a8996324dad1191ea4732072, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.998
+      value: 1.0836
       objectReference: {fileID: 0}
     - target: {fileID: 3280729834094857404, guid: 489b7342a8996324dad1191ea4732072, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.063
+      value: -0.1108
       objectReference: {fileID: 0}
     - target: {fileID: 3280729834094857404, guid: 489b7342a8996324dad1191ea4732072, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1807,7 +1807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240817897}
-  - component: {fileID: 1240817896}
+  - component: {fileID: 1240817898}
   m_Layer: 0
   m_Name: SobaGenerator
   m_TagString: Untagged
@@ -1815,22 +1815,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1240817896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240817895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a057cf02ea428b4790c318d07a4741c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
-  SpawnaPos: {fileID: 304894047}
-  minScaleY: 1
-  maxScaleY: 5
 --- !u!4 &1240817897
 Transform:
   m_ObjectHideFlags: 0
@@ -1846,6 +1830,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1240817898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240817895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3d4e8f62039174d84423563ee09ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3974264911207454460, guid: 1e1839f183269df4194b4328f8a08ebb, type: 3}
+  SpawnaPos: {fileID: 304894047}
+  minScaleY: 1
+  maxScaleY: 5
 --- !u!1 &1269448416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,7 +2200,7 @@ Transform:
   m_GameObject: {fileID: 2114282481}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23111062, y: -0, z: -0, w: 0.9729275}
-  m_LocalPosition: {x: 0, y: 0.048, z: -0.081}
+  m_LocalPosition: {x: 0, y: -0.016, z: -0.069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
